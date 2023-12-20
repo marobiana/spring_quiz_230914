@@ -34,6 +34,12 @@ public interface RealEstateMapper {
 			@Param("type") String type,
 			@Param("price") int price, 
 			@Param("rentPrice") Integer rentPrice);
+	
+	// input:id, type, price     output:성공한 행의 개수
+	public int updateRealEstateById(
+			@Param("id") int id, 
+			@Param("type") String type111111, 
+			@Param("price") int price);
 }
 
 
