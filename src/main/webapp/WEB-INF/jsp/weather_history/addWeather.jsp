@@ -11,6 +11,10 @@
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
+<%-- datepicker --%>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <%-- 내가 만든 외부 스타일시트 --%>
 <link rel="stylesheet" type="text/css" href="/css/weather_history/style.css">
 </head>
@@ -46,7 +50,7 @@
 			<%-- 날씨 추가 --%>
 			<section class="col-10 mt-3 ml-5">
 				<h3>날씨 입력</h3>
-				<form>
+				<form method="post" action="/weather-history/add-weather">
 					<div class="d-flex justify-content-between mt-5">
 						<div class="d-flex align-items-center">
 							<div class="input-label">날짜</div>
@@ -122,5 +126,17 @@
 			</div>
 		</footer>
 	</div>
+<script>
+	$(document).ready(function() {
+		
+		// 날짜 선택
+		$("#date").datepicker({
+			dateFormat: "yy-mm-dd"
+		});
+	});
+</script>
 </body>
 </html>
+
+
+
