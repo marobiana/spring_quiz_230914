@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -76,12 +77,12 @@ public class Lesson06Controller {
 	
 	// 즐겨찾기 삭제 - AJAX 요청
 	@ResponseBody
-	@GetMapping("/delete-bookmark")
+	@DeleteMapping("/delete-bookmark")
 	public Map<String, Object> deleteBookmark(
 			@RequestParam("id") int id) {
 		
 		// db delete
-		int rowCount = 
+		int rowCount = bookmarkBO.deleteBookmarkById(id);
 		
 		Map<String, Object> result = new HashMap<>();
 		if (rowCount > 0) {
@@ -91,6 +92,8 @@ public class Lesson06Controller {
 			result.put("code", 500); // 실패
 			result.put("error_message", "삭제하는데 실패했습니다.");
 		}
+		
+		return result;
 	}
 }
 

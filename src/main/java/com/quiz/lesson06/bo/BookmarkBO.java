@@ -30,6 +30,10 @@ public class BookmarkBO {
 		return bookmarkList.isEmpty() ? false : true;
 		//return !bookmarkList.isEmpty();
 	}
+	
+	public int deleteBookmarkById(int id) {
+		return bookmarkMapper.deleteBookmarkById(id);
+	}
 }
 
 
