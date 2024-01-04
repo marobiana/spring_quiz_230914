@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -60,6 +61,25 @@ public class BookingController {
 	@GetMapping("/make-booking-view")
 	public String makeBookingView() {
 		return "booking/makeBooking";
+	}
+	
+	// 예약하기 - AJAX 요청
+	@ResponseBody
+	@PostMapping("/make-booking")
+	public Map<String, Object> makeBooking(
+			@RequestParam("name") String name,
+			@RequestParam("date") String date,
+			@RequestParam("day") int day,
+			@RequestParam("headcount") int headcount,
+			@RequestParam("phoneNumber") String phoneNumber) {
+		
+		// insert db
+		bookingBO.addBooking(name, date, day, headcount, phoneNumber);
+		
+		Map<String, Object> result = new HashMap<>();
+		result.put("code", 200);
+		result.put("result", "성공");
+		return result;
 	}
 
 	// 예약 확인 화면

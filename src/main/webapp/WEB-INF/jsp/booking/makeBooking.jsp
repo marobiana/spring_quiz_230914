@@ -70,6 +70,70 @@
 			minDate:0
 			, dateFormat:'yy-mm-dd'
 		});
+		
+		// 예약하기 버튼
+		$('#makeBookingBtn').on('click', function() {
+			//alert("클릭");
+			let name = $('#name').val().trim();
+			let date = $('#date').val();
+			let day = $('#day').val().trim();
+			let headcount = $('#headcount').val().trim();
+			let phoneNumber = $('#phoneNumber').val().trim();
+			
+			// validation
+			if (!name) {
+				alert("이름을 입력하세요");
+				return;
+			}
+			
+			if (!date) {
+				alert("날짜를 선택해주세요");
+				return;
+			}
+			
+			if (!day) {
+				alert("숙박일을 입력하세요.");
+				return;
+			}
+			
+			if (isNaN(day)) { // 숫자가 아닐 때 참
+				alert("숙박일은 숫자만 가능합니다.");
+				return;
+			}
+			
+			if (!headcount) {
+				alert("숙박인원을 입력하세요");
+				return;
+			}
+			
+			if (isNaN(headcount)) {
+				alert("숙박인원은 숫자만 입력 가능합니다.");
+				return;
+			}
+			
+			if (!phoneNumber) {
+				alert("전화번호를 입력하세요");
+				return;
+			}
+			
+			$.ajax({
+				// request
+				type:"POST"
+				, url:"/booking/make-booking"
+				, data:{"name":name, "date":date, "day":day, "headcount":headcount, "phoneNumber":phoneNumber}
+				
+				// response
+				, success:function(data) {
+					if (data.code == 200) {
+						alert("예약 되었습니다.");
+						location.href = "/booking/booking-list-view";
+					}
+				}
+				, error:function(request, status, error) {
+					alert("예약하는데 실패했습니다.");
+				}
+			});
+		});
 	});
 </script>
 </body>
