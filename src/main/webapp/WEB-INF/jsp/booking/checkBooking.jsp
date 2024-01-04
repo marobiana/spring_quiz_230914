@@ -17,7 +17,7 @@
 <body>
 	<div id="wrap" class="container">
 	    <header class="d-flex justify-content-center align-items-center">
-	        <div class="display-4">통나무 팬션</div>
+	        <div class="display-4">통나무 펜션</div>
 	    </header>
 	    <nav>
 	        <ul class="nav nav-fill">
@@ -38,12 +38,12 @@
                 <div id="memberBox" class="mr-3 pt-3">
                 	<span class="reserve-confirm-text">예약 확인</span>
                     <div class="d-flex align-items-center justify-content-end mt-3">
-                        <span class="text-white mr-2">아이디</span>
-                        <input type="text" id="id" class="form-control col-9">
+                        <span class="text-white mr-2">이름</span>
+                        <input type="text" id="name" class="form-control col-9">
                     </div>
                     <div class="d-flex align-items-center justify-content-end mt-3">
-                        <span class="text-white mr-2">비밀번호</span>
-                        <input type="password" id="password" class="form-control col-9">
+                        <span class="text-white mr-2">전화번호</span>
+                        <input type="text" id="phoneNumber" class="form-control col-9">
                     </div>
 
                     <!-- 버튼 -->
@@ -63,7 +63,7 @@
 	        <small class="text-secondary">
 	            제주특별자치도 제주시 애월읍<br>
 	            사업자등록번호: 111-22-255222 / 농어촌민박사업자지정 / 대표:김통목<br>
-	            Copyright 2024 tongnamu. All right reserved.
+	            Copyright 20XX tongnamu. All right reserved.
 	        </small>
 	    </footer>
 	</div>

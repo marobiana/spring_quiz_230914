@@ -19,7 +19,7 @@
 <body>
 	<div id="wrap" class="container">
 	    <header class="d-flex justify-content-center align-items-center">
-	        <div class="display-4">통나무 팬션</div>
+	        <div class="display-4">통나무 펜션</div>
 	    </header>
 	    <nav>
 	        <ul class="nav nav-fill">
@@ -74,7 +74,7 @@
 	        <small class="text-secondary">
 	            제주특별자치도 제주시 애월읍<br>
 	            사업자등록번호: 111-22-255222 / 농어촌민박사업자지정 / 대표:김통목<br>
-	            Copyright 2024 tongnamu. All right reserved.
+	            Copyright 20XX tongnamu. All right reserved.
 	        </small>
 	    </footer>
 	</div>
