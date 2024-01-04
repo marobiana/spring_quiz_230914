@@ -87,4 +87,18 @@ public class BookingController {
 	public String checkBookingView() {
 		return "booking/checkBooking";
 	}
+	
+	// 예약 확인 - AJAX 요청
+	@ResponseBody
+	@PostMapping("/check-booking")
+	public 리턴타입 checkBooking(
+			@RequestParam("name") String name,
+			@RequestParam("phoneNumber") String phoneNumber) {
+		
+		Booking booking = bookingBO.getBookingByNamePhoneNumber(name, phoneNumber);
+	}
 }
+
+
+
+

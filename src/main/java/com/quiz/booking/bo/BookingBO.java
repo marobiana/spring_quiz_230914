@@ -28,6 +28,10 @@ public class BookingBO {
 		
 		bookingMapper.insertBooking(name, date, day, headcount, phoneNumber);
 	}
+	
+	public Booking getBookingByNamePhoneNumber(String name, String phoneNumber) {
+		
+	}
 }
 
 

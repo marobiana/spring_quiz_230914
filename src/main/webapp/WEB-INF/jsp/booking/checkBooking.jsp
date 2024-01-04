@@ -48,7 +48,7 @@
 
                     <!-- 버튼 -->
                     <div class="d-flex justify-content-end mt-3">
-                        <button type="button" class="submit-btn btn btn-success">조회하기</button>
+                        <button type="button" id="checkBookingBtn" class="btn btn-success">조회하기</button>
                     </div>
                 </div>
             </section>
@@ -67,5 +67,44 @@
 	        </small>
 	    </footer>
 	</div>
+	
+<script>
+	$(document).ready(function() {
+		// 조회하기 버튼 클릭
+		$('#checkBookingBtn').on('click', function() {
+			//alert("클릭");
+			let name = $('#name').val().trim();
+			let phoneNumber = $('#phoneNumber').val().trim();
+			
+			if (!name) {
+				alert("이름을 입력하세요.");
+				return;
+			}
+			
+			if (!phoneNumber) {
+				alert("전화번호를 입력하세요.");
+				return;
+			}
+			
+			$.ajax({
+				// request
+				type:"post"
+				, url:"/booking/check-booking"
+				, data:{"name":name, "phoneNumber":phoneNumber}
+				
+				// response
+				, success:function(data) {
+					
+				}
+				, error:function(request, status, error) {
+					alert("조회하는데 실패했습니다.");
+				}
+			});
+		});
+	});
+</script>
 </body>
 </html>
+
+
+
