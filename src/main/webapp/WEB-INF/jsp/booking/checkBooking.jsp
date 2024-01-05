@@ -94,7 +94,16 @@
 				
 				// response
 				, success:function(data) {
-					
+					// {"code":200, "result":{"name":"신보람", ....}}
+					if (data.code == 200) { // 예약 있는 경우 
+						alert("이름:" + data.result.name 
+								+ "\n날짜:" + data.result.date.slice(0, 10)
+								+ "\n일수:" + data.result.day
+								+ "\n인원:" + data.result.headcount
+								+ "\n상태:" + data.result.state);
+					} else if (data.code == 500) {
+						alert(data.error_message);
+					}
 				}
 				, error:function(request, status, error) {
 					alert("조회하는데 실패했습니다.");
